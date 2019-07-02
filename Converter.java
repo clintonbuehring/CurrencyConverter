@@ -2,21 +2,23 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Converter{
+
     public static void main(String[] args) {
 
-	// US, Euro, Canadian Dollar, Costa R. Colon, Japan Yen, Peso
-	double[][] currency = new double[6][6];
-	int currentCurrency, exchangeCurrency;
-	double exchangeAmount, newAmount;
+	// Currnecy: US, Euro, Canadian Dollar, Costa R. Colon, Japan Yen, Peso
+	double[][] currency = new double[6][6];	// 2-D Array to hold currency values
+	int currentCurrency, exchangeCurrency;	// Currency to be utilized
+	double exchangeAmount, newAmount;	// Amount to be exchanged
 
 	try
 	{
+	    // Get currency values from txt file
 	    File file = new File("currency_values.txt");
 	    Scanner input = new Scanner(file);
 	    while(input.hasNext()){
 	    	for(int a = 0; a < 6; a++){
 		    for(int b = 0; b < 6; b++){
-			currency[a][b] = input.nextDouble();
+			currency[a][b] = input.nextDouble(); 	// Put values into 2D array
 		    }
 		}
      	    }
@@ -30,14 +32,17 @@ public class Converter{
 
 	Scanner sc = new Scanner(System.in);
 
+	// Get the currency the user currently has
 	System.out.println("What currency are you starting out with?");
 	System.out.println("1) U.S.\n2) Euro\n3) Canadian Dollar\n4) Costa Rican Colon\n5) Japan Yen\n6) Peso");
 	currentCurrency = sc.nextInt() - 1;
 
+	// Get the currency that the user wishes to convert to
 	System.out.println("What currency are you exchanging to?");
 	System.out.println("1) U.S.\n2) Euro\n3) Canadian Dollar\n4) Costa Rican Colon\n5) Japan Yen\n6) Peso");
 	exchangeCurrency = sc.nextInt() - 1;
 
+	// Get the amount that the user wants to exchange
 	System.out.println("How much currency do you want to exchange?");
 	exchangeAmount = sc.nextDouble();
 
